@@ -2,13 +2,11 @@ package com.davi.ipv4calculator.controller;
 
 import com.davi.ipv4calculator.model.SubnetInfo;
 import com.davi.ipv4calculator.service.SubnetCalculator;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/subnet")
+@CrossOrigin(origins = "*")
 public class SubnetController {
 
     private final SubnetCalculator calculator;

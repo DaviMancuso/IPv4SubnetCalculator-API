@@ -18,6 +18,6 @@ public class GlobalExceptionHandler {
     ) {
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
-                .body(Map.of("ERRO", e.getMessage()));
+                .body(Map.of("erro", e.getMessage()));
     }
 }

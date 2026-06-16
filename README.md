@@ -95,6 +95,10 @@ Desenvolvido por Davi Mancuso como projeto de estudo para praticar Java, Spring 
 
 ---
 
+## Versão Atual
+
+v1.0.0
+
 ## 📄 Licença
 
 Projeto desenvolvido para fins educacionais e aprendizado.

@@ -2,23 +2,15 @@
 
 API REST desenvolvida com Spring Boot para cálculo de sub-redes IPv4.
 
-A aplicação recebe um endereço IP com CIDR e retorna informações detalhadas da rede em formato JSON.
+A aplicação recebe um endereço IPv4 com prefixo CIDR e retorna informações detalhadas da rede em formato JSON.
 
 ---
 
 ## 📖 Sobre o Projeto
 
-O objetivo desta API é disponibilizar os cálculos de sub-redes IPv4 através de um endpoint REST, permitindo integração com aplicações web, desktop ou mobile.
+O IPv4 Subnet Calculator API foi desenvolvido com o objetivo de disponibilizar cálculos de sub-redes IPv4 através de uma API REST, permitindo integração com aplicações web, desktop e mobile.
 
-O projeto foi desenvolvido para praticar conceitos de:
-
-* Java
-* Spring Boot
-* APIs REST
-* Redes de Computadores
-* Operações Bitwise
-* Tratamento de Exceções
-* Arquitetura em Camadas
+O projeto foi criado para praticar conceitos de desenvolvimento backend utilizando Java e Spring Boot, além de reforçar conhecimentos em Redes de Computadores e operações bitwise.
 
 ---
 
@@ -27,22 +19,80 @@ O projeto foi desenvolvido para praticar conceitos de:
 ### Cálculos Disponíveis
 
 * Endereço de Rede
-* Broadcast
+* Endereço de Broadcast
 * Primeiro Host Válido
 * Último Host Válido
 * Quantidade de Hosts
 * Máscara de Rede
 * Máscara Wildcard
 * Tipo da Rede
-* Rede em Binário
+* Representação Binária da Rede
 
 ### Validações
 
 * IPv4 válido
-* CIDR válido
+* CIDR válido (0 a 32)
 * Tratamento de erros HTTP
 * Casos especiais `/31`
 * Casos especiais `/32`
+
+### Recursos da API
+
+* Documentação automática com Swagger/OpenAPI
+* Logs de requisições
+* Logs de erros
+* Tratamento global de exceções
+* Respostas em formato JSON
+
+---
+
+## 📡 Endpoint
+
+### Calcular Sub-rede
+
+```http
+GET /api/subnet?ip={IP/CIDR}
+```
+
+### Exemplo
+
+```http
+GET /api/subnet?ip=192.168.1.50/26
+```
+
+### Resposta de Sucesso
+
+```json
+{
+  "rede": "192.168.1.0",
+  "broadcast": "192.168.1.63",
+  "primeiroHost": "192.168.1.1",
+  "ultimoHost": "192.168.1.62",
+  "quantidadeHost": 62,
+  "mascara": "255.255.255.192",
+  "wildCard": "0.0.0.63",
+  "tipoRede": "Privada",
+  "binarioRede": "11000000.10101000.00000001.00000000"
+}
+```
+
+### Resposta de Erro
+
+```json
+{
+  "erro": "IP inválido!"
+}
+```
+
+---
+
+## 📚 Documentação da API
+
+Após iniciar a aplicação, a documentação Swagger estará disponível em:
+
+```text
+http://localhost:8080/swagger-ui/index.html
+```
 
 ---
 
@@ -51,16 +101,18 @@ O projeto foi desenvolvido para praticar conceitos de:
 * Java 21
 * Spring Boot
 * Maven
+* SpringDoc OpenAPI
+* SLF4J
+* Swagger UI
 * Git
 * GitHub
 * Railway
-* Vercel
 
 ---
 
 ## 🧠 Conceitos Aplicados
 
-### Redes
+### Redes de Computadores
 
 * IPv4
 * CIDR
@@ -68,6 +120,7 @@ O projeto foi desenvolvido para praticar conceitos de:
 * Broadcast
 * Hosts
 * Máscara Wildcard
+* Sub-redes
 
 ### Programação
 
@@ -76,6 +129,7 @@ O projeto foi desenvolvido para praticar conceitos de:
 * Conversão IPv4 ↔ Long
 * Operações Bitwise
 * Tratamento de Exceções
+* Logging
 * REST API
 
 ### Spring Boot
@@ -83,21 +137,51 @@ O projeto foi desenvolvido para praticar conceitos de:
 * Controllers
 * Services
 * Models
+* Exception Handler
 * JSON
 * HTTP Status
-* Exception Handler
+* Swagger/OpenAPI
+
+---
+
+## 🔍 Logs
+
+A aplicação registra eventos importantes para facilitar o monitoramento e a depuração.
+
+### Requisições
+
+```text
+INFO - Requisição recebida para cálculo de sub-rede: 192.168.1.50/26
+```
+
+### Erros
+
+```text
+WARN - Erro de validação na requisição: IP inválido
+```
 
 ---
 
 ## 👨‍💻 Autor
 
-Desenvolvido por Davi Mancuso como projeto de estudo para praticar Java, Spring Boot e conceitos de Redes de Computadores.
+Desenvolvido por Davi Mancuso como projeto de estudo para praticar Java, Spring Boot, APIs REST e conceitos de Redes de Computadores.
 
 ---
 
-## Versão Atual
+## 🏷️ Versão Atual
 
-v1.0.0
+v1.1.0
+
+### Changelog
+
+#### v1.1.0
+
+* Adicionado Swagger/OpenAPI
+* Adicionado sistema de logs de requisições
+* Adicionado sistema de logs de erros
+* Melhorias na documentação da API
+
+---
 
 ## 📄 Licença
 

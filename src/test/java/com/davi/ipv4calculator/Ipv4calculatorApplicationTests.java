@@ -8,6 +8,7 @@ class Ipv4calculatorApplicationTests {
 
 	@Test
 	void contextLoads() {
+
 	}
 
 }

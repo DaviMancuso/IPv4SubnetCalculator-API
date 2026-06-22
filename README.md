@@ -43,6 +43,8 @@ O projeto foi criado para praticar conceitos de desenvolvimento backend utilizan
 * Logs de erros
 * Tratamento global de exceções
 * Respostas em formato JSON
+* Testes unitários automatizados
+* Testes de integração com MockMvc
 
 ---
 
@@ -107,6 +109,8 @@ http://localhost:8080/swagger-ui/index.html
 * Git
 * GitHub
 * Railway
+* JUnit 5
+* MockMvc
 
 ---
 
@@ -141,6 +145,8 @@ http://localhost:8080/swagger-ui/index.html
 * JSON
 * HTTP Status
 * Swagger/OpenAPI
+* MockMvc
+* Testes de Integração
 
 ---
 
@@ -159,8 +165,42 @@ INFO - Requisição recebida para cálculo de sub-rede: 192.168.1.50/26
 ```text
 WARN - Erro de validação na requisição: IP inválido
 ```
+## 🧪 Testes
 
----
+O projeto possui testes automatizados para garantir a confiabilidade da aplicação.
+
+### Testes Unitários
+
+Validação da regra de negócio responsável pelos cálculos de sub-redes IPv4.
+
+Cobertura dos cenários:
+
+* Cálculo de sub-rede válido
+* IPv4 inválido
+* CIDR inválido
+* Casos especiais `/31`
+* Casos especiais `/32`
+
+### Testes de Integração
+
+Validação completa do fluxo da API utilizando MockMvc.
+
+Cobertura dos cenários:
+
+* Retorno HTTP 200 para requisições válidas
+* Retorno HTTP 400 para IPv4 inválido
+* Retorno HTTP 400 para CIDR inválido
+
+### Resultado dos Testes
+
+```text
+Tests run: 9
+Failures: 0
+Errors: 0
+BUILD SUCCESS 
+```
+
+
 
 ## 👨‍💻 Autor
 
@@ -170,9 +210,16 @@ Desenvolvido por Davi Mancuso como projeto de estudo para praticar Java, Spring 
 
 ## 🏷️ Versão Atual
 
-v1.1.0
+v1.2.0
 
 ### Changelog
+
+#### v1.2.0
+
+* Adicionados testes unitários para validação das regras de negócio
+* Adicionados testes de integração utilizando MockMvc
+* Validação automatizada dos retornos HTTP da API
+* Melhoria na qualidade e confiabilidade do código
 
 #### v1.1.0
 
